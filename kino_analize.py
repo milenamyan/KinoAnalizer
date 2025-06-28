@@ -45,6 +45,9 @@ class Movie:
         S3 = data[name]["Star3"]
         S4 = data[name]["Star4"]
         return cls(R_Y, RT, G, S1, S2, S3, S4)
-
+    
+    def ReturnActors(self):
+        print(', '.join([self.Star1, self.Star2,self.Star3,self.Star4]))
+    
 m = Movie.WithName("The Shawshank Redemption")
-print(m.Star1)
+m.ReturnActors()
