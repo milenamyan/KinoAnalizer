@@ -25,7 +25,7 @@ class Movie:
     Gross = None
     Name = None
 
-    def __init__(self, R_Y, RT, G, S1, S2, S3, S4): #, I_R, D, Gr, N
+    def __init__(self, R_Y = None, RT = None, G = None, S1 = None, S2 = None, S3 = None, S4 = None): #, I_R, D, Gr, N
         self.Released_Year = R_Y
         self.Runtime = RT
         self.Genre = G
@@ -46,8 +46,16 @@ class Movie:
         S4 = data[name]["Star4"]
         return cls(R_Y, RT, G, S1, S2, S3, S4)
     
-    def ReturnActors(self):
+    def ReturnAct(self):
         print(', '.join([self.Star1, self.Star2,self.Star3,self.Star4]))
     
+    @classmethod
+    def ReturnActors(cls,name):
+        S1 = data[name]["Star1"]
+        S2 = data[name]["Star2"]
+        S3 = data[name]["Star3"]
+        S4 = data[name]["Star4"]
+        print(', '.join([S1, S2, S3, S4]))
+    
 m = Movie.WithName("The Shawshank Redemption")
-m.ReturnActors()
+m = Movie.ReturnActors("The Shawshank Redemption")
