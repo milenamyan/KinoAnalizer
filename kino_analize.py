@@ -57,5 +57,9 @@ class Movie:
         S4 = data[name]["Star4"]
         print(', '.join([S1, S2, S3, S4]))
     
+    def DurationByHours(self):
+        hours = int((self.Runtime.split())[0]) / 60
+        print(round(hours,1))
+
 m = Movie.WithName("The Shawshank Redemption")
-m = Movie.ReturnActors("The Shawshank Redemption")
+m.DurationByHours()
