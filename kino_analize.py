@@ -1,4 +1,6 @@
 import json
+from dataclasses import dataclass   
+from typing import Optional
 PATH = "imdb_top_999.json" # put the path to your file here
 
 with open(PATH, "r") as f:
@@ -11,32 +13,20 @@ for kino in data.keys():
         del data[kino][k]
 
     data[kino]["Name"] = kino
-
+    
+@dataclass
 class Movie:
-    Released_Year = None
-    Runtime = None
-    Genre = None
-    IMDB_Rating = None
-    Director = None
-    Star1 = None
-    Star2 = None
-    Star3 = None
-    Star4 = None
-    Gross = None
-    Name = None
-
-    def __init__(self, R_Y = None, RT = None, G = None, I_R = None, D = None, S1 = None, S2 = None, S3 = None, S4 = None, Gr = None, N = None): 
-        self.Released_Year = R_Y
-        self.Runtime = RT
-        self.Genre = G
-        self.IMDB_Rating = I_R
-        self.Director = D
-        self.Star1 = S1
-        self.Star2 = S2
-        self.Star3 = S3
-        self.Star4 = S4
-        self.Gross = Gr
-        self.Name = N
+    Released_Year: Optional[str] = None
+    Runtime: Optional[str] = None
+    Genre: Optional[str] = None
+    IMDB_Rating: Optional[str] = None
+    Director: Optional[str] = None
+    Star1: Optional[str] = None
+    Star2: Optional[str] = None
+    Star3: Optional[str] = None
+    Star4: Optional[str] = None
+    Gross: Optional[str] = None
+    Name: Optional[str] = None
 
 
     @classmethod
